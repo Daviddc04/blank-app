@@ -2,6 +2,7 @@ import streamlit as st
 
 import pandas as pd
 from prophet import Prophet
+import plotly.figure_factory as ff
 
 
 st.title("🎈 My new app")
@@ -21,6 +22,8 @@ future.tail()
 forecast = m.predict(future)
 forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
 
-fig1 = m.plot(forecast)
+#fig1 = m.plot(forecast)
 
-fig2 = m.plot_components(forecast)
+#fig2 = m.plot_components(forecast)
+
+st.plotly_chart(forecast)
